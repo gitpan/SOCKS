@@ -1,55 +1,30 @@
 
 Introduction
 ------------
-This module enables you to use a SOCKS server.  Look at the example
-program named "example" to see how to use the module.  This version
-(0.02) only implements SOCKS 4.  A SOCKS 5 implementation is
-in the works and will be included in this module at some point
-in the future.
+This is a SOCKS client module that can communicate with SOCKS v4 and
+v5 servers.  It currently allows you to make outgoing and incoming 
+TCP connections.  UDP is not yet supported and is first on the TODO
+list.  Included in this distribution is a sample program called
+"example" to show you how to use this module.  Net::SOCKS
+documentation is available on your system by doing a
+"perldoc Net::SOCKS".
+
+Resources on the Internet
+-------------------------
+The latest Net::SOCKS module can be found at:
+http://www.perl.com/CPAN/modules/by-module/Net/
+
+General SOCKS information:
+http://www.socks.nec.com/
 
 Installing
 ----------
 To install, do the usual "perl Makefile.PL ; make ; make test ; make install".
-It's okay when pod2man complains about lines with ">" in it.
-
-Future Plans
-------------
-Planned for the next release:
-  - Something to make this easy to integrate into Graham Barr's libnet module.
-
-  - Move SOCKS v4 implementation into Net::SOCKS::v4.  
-    Net::SOCKS(protocol_version => 4, ...) will return a reference
-    to a Net::SOCKS::v4 object at that point.
-
-Note
-----
-For those not familar with SOCKS, one should note that 
-setting up a SOCKS client to listen on the network 
-is slightly different than normal.  The main differences
-are:
-
-  - The SOCKS client can not pick an arbitrary port
-    number to listen on.  Instead, the SOCKS server
-    picks the port number (and the ip address) of
-    the service that will listen.  The SOCKS server
-    tells the client so it can notify the connecting
-    application where to connect to.
-
-  - The SOCKS client must tell the SOCKS server
-    the ip address and port number of the TCP client
-    that will connect to the service.  The SOCKS
-    server optionally checks that the incoming
-    connection request actually does come from that
-    ip address and port number.
-
-For these reasons, it is a bit hard to use (and write) a SOCKS module
-as a plug-in replacement for Net::Socket.  I'm still thinking
-of how to make it easier for programmers to revise current code to
-use Net::SOCKS with minimal changes.
-
-Feel free to send me any comments, questions, or suggestions that you have.
 
 Cheers,
-Clinton Wong <clintdw@netcom.com>
-December 28, 1997
+Clinton Wong
+clintdw@netcom.com
+http://postmaster.net/~clintdw/
+
+May 19, 1998
 

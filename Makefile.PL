@@ -3,5 +3,5 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'	=> 'Net::SOCKS',
-    'VERSION_FROM' => 'SOCKS.pm', # finds $VERSION
+    'VERSION_FROM' => 'lib/Net/SOCKS.pm', # finds $VERSION
 );

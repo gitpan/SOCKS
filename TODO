@@ -1,18 +1,7 @@
-
- - Split off version 4 and 5 implementation into Net::SOCKS::v4
-   and Net::SOCKS::v5.  Use Net::SOCKS as a redirector to the
-   subclass, depending on the value of socks_version passed to
-   new().
-
- - Clean up POD.
-
- - Patch libnet to support SOCKS.
-
- - Support SOCKS v5 with username and password.
-
- - Support SOCKS v5 with GSS-API (RFC 1508, 1509).
-
- - Support multicast extension.
-
- - Support SSL SOCKS extension.
-
+ Support for:
+ - UDP associate
+ - Challenge Handshake Authentication (CHAP) Protocol
+ - Generic Security Service (GSS) API
+ - Extensible Authentication Protocol (EAP) Authentication
+ - Multi-authentication Framework Method (MAF)
+ - SOCKS5 multicast extension
