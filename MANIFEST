@@ -1,0 +1,8 @@
+Changes		- revision history
+example		- sample code to try out Net::SOCKS
+MANIFEST	- this file
+Makefile.PL	- "perl Makefile.PL" to get things started
+README		- read this first
+SOCKS.pm	- the main module
+test.pl		- test scripts (empty - for version 0.02)
+TODO		- list of features planned for next release

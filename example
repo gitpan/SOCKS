@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl -w
+
+use strict;
+
+use Net::SOCKS;
+
+print "Attempting to connect to 128.10.10.11 at port 79 using the socks\n";
+print "server at 128.10.10.11 port 1080\n";
+
+my $sock = new Net::SOCKS(socks_addr => '128.10.10.11',
+		socks_port => 1080, user_id => 'clintdw',
+		protocol_version => 4);
+my $f= $sock->connect(peer_addr => '128.10.10.11', peer_port => 79);
+print "connect status: ",
+	Net::SOCKS::status_message($sock->param('status_num')), "\n";
+print $f "clintdw\n";
+while (<$f>) { print }
+$sock->close();
+
+print "Attempting to listen() using the server at 128.10.10.11 port 1080\n";
+
+$sock = new Net::SOCKS(socks_addr => '128.10.10.11',
+		socks_port => 1080, user_id => 'clintdw',
+		protocol_version => 4);
+
+my ($ip, $ip_dot_dec, $port) = $sock->bind(peer_addr => "128.10.10.11",
+			peer_port => 9999);
+print "bind status: ",
+	Net::SOCKS::status_message($sock->param('status_num')), "\n";
+
+print "Listening at the IP of ", $ip_dot_dec, " at port ", $port, "\n";
+$f= $sock->accept();
+
+print "accept status: ", 
+	Net::SOCKS::status_message($sock->param('status_num')), "\n";
+
+while (<$f>) { print }
+$sock->close();
+
